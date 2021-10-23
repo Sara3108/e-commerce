@@ -1,0 +1,84 @@
+<div class="container py-5">
+  <div class="table-container">
+    <div class="d-flex justify-content-between list-header">
+      <h3>Products List</h3>
+      <button class="btn add-btn" (click)="handleOpenModal(addAndEditModal)">
+        <i>
+          <app-add-icon></app-add-icon>
+        </i>
+        Add new product
+      </button>
+    </div>
+    <ng-container *ngIf="!isloadingData; else loading">
+      <div class="table-responsive px-3 py-2" *ngIf="allProducts; else noData">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Image</th>
+              <th scope="col">Title</th>
+              <th scope="col">price</th>
+              <th scope="col">category</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product?.id }}</td>
+              <td class="img">
+                <img src="{{ product?.image }}" alt="product photo" />
+              </td>
+              <td>{{ product?.title }}</td>
+              <td>{{ product?.price }}</td>
+              <td>
+                <span
+                  [class]="'cate ' + product?.category?.slice(0, 3) + 'Cate'"
+                >
+                  {{ product?.category }}
+                </span>
+              </td>
+              <td>
+                <div class="action-icons">
+                  <i (click)="handleOpenModal(addAndEditModal, product)">
+                    <app-edit-icon></app-edit-icon>
+                  </i>
+                  <i (click)="handleDelete(deleteModal, product)">
+                    <app-delete-icon></app-delete-icon>
+                  </i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <app-paginator
+          (emitItems)="pagingChanged($event)"
+          [items]="allProducts"
+        ></app-paginator>
+      </div>
+      <ng-template #noData>
+        <div class="no-data">there is no data</div>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #loading>
+      <app-loading></app-loading>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #addAndEditModal>
+  <app-add-update-product-modal
+    [product]="updatingProduct"
+    [isAdding]="isAdding"
+    [categories]="categories"
+    (emitAddOrUpdate)="emitAddOrUpdateProduct($event)"
+  ></app-add-update-product-modal>
+</ng-template>
+
+<ng-template #deleteModal>
+  <app-delete-product-modal
+    [product]="deletedProduct"
+    (deleteEmit)="deleteProduct($event)"
+  ></app-delete-product-modal>
+</ng-template>

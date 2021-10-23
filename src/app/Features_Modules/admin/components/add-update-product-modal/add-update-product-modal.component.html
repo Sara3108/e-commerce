@@ -1,0 +1,65 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">
+    {{ isAdding ? ("ADMIN.ADD" | translate) : ("ADMIN.UPDATE" | translate) }}
+  </h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="closeModal()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="productForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        id="price"
+        type="number"
+        class="form-control"
+        formControlName="price"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select
+        id="category"
+        class="form-control custom-select"
+        formControlName="category"
+      >
+        <option *ngFor="let cate of categories" [ngValue]="cate">
+          {{ cate }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Describtion</label>
+      <textarea
+        class="form-control"
+        id="desc"
+        rows="3"
+        formControlName="description"
+      ></textarea>
+    </div>
+
+    <div class="pt-4">
+      <button type="submit" class="btn btn-primary">
+        {{ isAdding ? ("ADD" | translate) : ("UPDATE" | translate) }}
+      </button>
+    </div>
+  </form>
+</div>

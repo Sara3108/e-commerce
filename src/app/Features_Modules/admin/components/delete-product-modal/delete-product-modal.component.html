@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Delete Product</h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="closeModal()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body text-center">
+  <p>Do you want to delete {{ product?.title }} product?</p>
+  <button type="button" class="btn btn-primary" (click)="confirm()">Yes</button>
+  <button type="button" class="btn btn-default" (click)="closeModal()">
+    No
+  </button>
+</div>

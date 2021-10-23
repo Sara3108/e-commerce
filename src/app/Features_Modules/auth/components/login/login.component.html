@@ -1,0 +1,35 @@
+<div class="login-container">
+    <div class="d-flex justify-content-end">
+        <a class="lang" (click)="switchLang()">{{currentLanguage === 'en' ? 'عربي' : 'English'}}</a>
+    </div>
+    <div class="form-container">
+        <h3>{{'LOGIN.WELCOME' | translate}}</h3>
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+          <div class="flex-row">
+            <label class="lf--label" for="username">
+              <app-login-icon></app-login-icon>
+            </label>
+            <input
+              id="username"
+              class="lf--input"
+              placeholder="{{'LOGIN.USERNAME'| translate}}"
+              type="text"
+              formControlName="username"
+            />
+          </div>
+          <div class="flex-row">
+            <label class="lf--label" for="password">
+             <app-password-icon></app-password-icon>
+            </label>
+            <input
+              id="password"
+              class="lf--input"
+              placeholder="{{'LOGIN.PASSWORD'| translate}}"
+              type="password"
+              formControlName="password"
+            />
+          </div>
+          <button class="lf--submit" type="submit">{{'LOGIN.SUBMIT' | translate}}</button>
+        </form>
+      </div>
+</div>

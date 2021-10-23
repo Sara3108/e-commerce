@@ -1,0 +1,97 @@
+$left-color: #242e4d;
+$right-color: #897e79;
+$green-dark: #35c3c1;
+$green-light: #00d6b7;
+$gray: #8f8f8f;
+$gray-light: #f5f6f8;
+
+.login-container {
+  height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background: linear-gradient(
+    135deg,
+    rgba($left-color, 0.9),
+    rgba($right-color, 0.9)
+  );
+  text-align: center;
+}
+
+.form-container {
+    padding-top: 130px;
+    h3{
+        color: #ffffff;
+        padding: 20px;
+    }
+}
+
+.lang {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 20px 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-form {
+  padding: 3em;
+  position: relative;
+  background: rgba(black, 0.15);
+  width: 470px;
+  margin: 0 auto;
+}
+
+.flex-row {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.lf--label {
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $gray-light;
+  cursor: pointer;
+}
+.lf--input {
+  flex: 1;
+  padding: 1em;
+  border: 0;
+  color: $gray;
+  font-size: 1rem;
+}
+
+.lf--submit {
+  display: block;
+  padding: 1em;
+  width: 100%;
+
+  background: linear-gradient(to right, $green-dark, $green-light);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(black, 0.2);
+
+  &:focus {
+    outline: none;
+    transition: transform 0.15s ease;
+    transform: scale(1.1);
+  }
+}
+
+.lf--forgot {
+  margin-top: 1em;
+  color: $green-light;
+  font-size: 0.65em;
+  text-align: center;
+  position: relative;
+}
+
+::placeholder {
+  color: $gray;
+}

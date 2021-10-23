@@ -1,0 +1,41 @@
+<div class="paginator-container" *ngIf="items?.length !== 0">
+    <div class="d-flex justify-content-right paging-input-container mt-4">
+      <div
+        class="d-flex align-items-center justify-content-center mr-3 ml-2 input-wrapper"
+      >
+        <span>
+          {{ totalItemsCount }} {{ "ADMIN.ITEMS" | translate }}
+        </span>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-right paging-input-container mt-4">
+      <button
+        class="first"
+        [class.disapled]="pageCount + 1 <= 1"
+        (click)="goToPreviousPage()"
+      >
+        <app-arrow-icon></app-arrow-icon>
+      </button>
+      <div
+        class="d-flex align-items-center justify-content-center mr-3 ml-2 input-wrapper"
+      >
+        <input
+          class="app-input mx-2 paging-input"
+          [value]="pageCount + 1"
+          (change)="getPageByNumber($event)"
+        />
+        <span>
+          {{ "OF" | translate }} {{ totalPagesCount }}
+          {{ "PAGES" | translate }}
+        </span>
+      </div>
+      <button
+        class="last"
+        (click)="goToNextPage()"
+        [class.disapled]="pageCount+ 1 >= totalPagesCount"
+      >
+        <app-arrow-icon></app-arrow-icon>
+      </button>
+    </div>
+</div>

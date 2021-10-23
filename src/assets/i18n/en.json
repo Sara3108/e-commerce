@@ -1,0 +1,18 @@
+{
+  "LOGIN": {
+    "WELCOME": "Welcome",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "SUBMIT": "LOGIN"
+  },
+  "LOADING": "Loading",
+  "ADMIN": {
+    "ITEMS": "Items",
+    "ADD": "Add New Product",
+    "UPDATE": "Edit Product"
+  },
+  "OF": "Of",
+  "PAGES": "Pages",
+  "ADD": "Add",
+  "UPDATE": "Update"
+}

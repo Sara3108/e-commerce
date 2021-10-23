@@ -1,0 +1,15 @@
+<nav class="navbar nav-background">
+  <div class="d-flex justify-content-between nav-container">
+    <a class="navbar-brand">
+      <ng-content></ng-content>
+    </a>
+    <div>
+      <a class="nav-item" (click)="switchLang()">{{
+        currentLanguage === "en" ? "عربي" : "English"
+      }}</a>
+      <i class="nav-item" (click)="logOut()"
+        ><app-logout-icon></app-logout-icon
+      ></i>
+    </div>
+  </div>
+</nav>
